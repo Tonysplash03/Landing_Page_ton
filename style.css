@@ -1,0 +1,733 @@
+/* common style */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'vollkorn','serif';
+     list-style-type: none;
+     text-decoration: none;
+     box-sizing: border-box;
+     outline: none;
+}
+html{
+    font-size: 62.5%;
+}
+/* prim: #2b81e4 */
+/* second: #eee */
+/* white: #fff */
+/* grey: #555 */
+/* light-grey: #777 */
+.center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    margin: 3.5rem;
+    background-color: #eee;
+    box-shadow: 0 1rem 3rem grey;
+    /* border: 1px black solid; */
+    overflow: hidden;
+}
+/* End of common style */
+
+/* Navbar */
+.navbar-icon{
+     width: 5.5rem;
+     height: 5.5rem;
+     background-color: white;
+     border-radius: 50%;
+     cursor: pointer;
+     display: flex;
+     flex-direction: column;
+}
+.navbar-wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    left: 0;
+    bottom: -100%;
+    opacity: 0;
+    z-index: 300;
+    padding: 3.5rem 5.5rem 3.5rem 3.5rem;
+    transition: bottom 0.5s, opacity 0.2s;  
+    /* What is 'bottom' actually mean */
+}
+.navbar{
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.3)),url(images/navbar-bg.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-y: hidden;
+}
+.change .navbar-wrapper{
+    bottom: 0;
+    opacity: 1;
+    transition: bottom 0.5s, opacity 0.2s 0.25s;
+}
+.change .nav-link{
+    top: 0;
+}
+.open-navbar-icon{
+    position: fixed;
+    top: 6.5rem;
+    left: 6.5rem;
+    z-index: 200;
+}
+.close-navbar-icon{
+    position: absolute;
+    top: 2.5rem;
+    right: 3rem;
+    z-index: 300;
+}
+.close-navbar-icon .line{
+    position: absolute;
+}
+.close-navbar-icon .line1{
+    transform: rotate(45deg);
+}
+.close-navbar-icon .line2{
+    transform: rotate(-45deg);
+}
+
+.navbar-icon .line{
+    height: 0.2rem;
+    width:3.5rem;
+    background-color: #777;
+}
+.open-navbar-icon .line{
+    margin: 0.3rem 0;
+}
+.nav-list{
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.nav-link{
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+    opacity: 0.8;
+    transition: all 0.3s;
+    position: relative;
+    top: -100%;
+}
+.nav-link:hover{
+    opacity:1;
+    color: #2b81e4;
+}
+.change .nav-link:nth-child(1){
+    transition: top 1s 0.4s,opacity 0.3s, color 0.3s;
+}
+.change .nav-link:nth-child(2){
+    transition: top 1s 0.6s,opacity 0.3s, color 0.3s;
+}
+.change .nav-link:nth-child(3){
+    transition: top 1s 0.8s,opacity 0.3s, color 0.3s;
+}
+.change .nav-link:nth-child(4){
+    transition: top 1s 1s,opacity 0.3s, color 0.3s;
+}
+.change .nav-link:nth-child(5){
+    transition: top 1s 1.2s,opacity 0.3s, color 0.3s;
+}
+/* .close-navbar-icon .line{
+    margin: 0.9rem ;
+} */
+/* End of Navbar */
+
+/* Header */
+.header{
+    width:100%;
+    height:calc(100vh - 7rem);
+    background: linear-gradient(rgba(18,113,255,0.5),rgba(18,113,255,0.3)),url(images/header-bg.jpg)center no-repeat;
+    background-size: cover;
+    position: relative;
+    perspective: 100rem; /* ???? */
+}
+.header-text{
+    text-align: center;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+.heading{
+    color: white;
+    font-size: 8rem;
+    text-shadow:0 0.3rem 0.5rem grey ;
+}
+.header-paragraph{
+    font-size: 3rem;
+    color: #eee;
+    font-weight: 500;
+    margin: auto;
+    max-width: 70rem;
+}
+.logo {
+    position: absolute;
+    top:4rem;
+    right: 4rem;
+}
+.logo h1{
+    display: flex; 
+}
+.logo h1 span{
+    font-size: 2rem;
+    font-weight: 900;
+    background-color: white;
+    color: #2b81e4;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    margin:0.5rem;
+    /* padding-left: 1rem;    alternative
+    padding-top: 0.5rem; */
+}
+
+.logo h1 span:nth-child(1){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.1s;
+    animation-iteration-count: infinite;
+    /* or shortcut: animation: drop-letters 5s 0.1s infinite */
+     
+}
+.logo h1 span:nth-child(2){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.2s;
+    animation-iteration-count: infinite;
+}             
+.logo h1 span:nth-child(3){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.3s;
+    animation-iteration-count: infinite;
+}
+.logo h1 span:nth-child(4){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+}
+.logo h1 span:nth-child(5){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+}
+.logo h1 span:nth-child(6){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.6s;
+    animation-iteration-count: infinite;
+}
+.logo h1 span:nth-child(7){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.7s;
+    animation-iteration-count: infinite;
+}
+.logo h1 span:nth-child(8){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.8s;
+    animation-iteration-count: infinite;
+}
+.logo h1 span:nth-child(9){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 0.9s;
+    animation-iteration-count: infinite;
+}
+.logo h1 span:nth-child(10){
+    animation-name: drop-letters;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes drop-letters{
+    0%{
+        transform: translateY(0)
+    }
+    10%{
+        transform: translateY(0)
+    }
+    15%{
+        transform: translateY(-100%)
+    }
+    20%{
+        transform: translateY(0)
+    }
+    100%{
+        transform: translateY(0)
+    }
+}
+.header-image{
+    width: 35%;
+    animation: image-float 120s infinite;
+
+}
+@keyframes image-float {
+    0%{
+        transform:translateZ(40rem);
+        opacity: 1;
+    }
+    40%{
+        transform: translateZ(-500rem)
+        translateX(150rem); 
+        opacity: 0.8;
+    }
+    70%{
+        transform: translateZ(-1500rem)
+        translateX(800rem); 
+        opacity: 0.6;
+    }
+    80%{
+        transform: translateZ(-50rem)
+        translateX(100rem); 
+        opacity: 0.8;
+    }
+    100%{
+        transform: translateZ(40rem);
+        opacity: 1;
+    }
+}
+/* End of Header */
+
+/* Popular Tours */
+.popular-tours{
+    padding: 5rem 0 10rem 0;
+}
+.popular-tours-heading{
+    font-size: 8rem;
+    margin-bottom: 8rem;
+    text-align: center;
+    text-shadow: 0 0.1rem 0.2rem #2b81e4;
+    color: #2b81e4;
+}
+.cards-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card{
+    width: 35rem;
+    position: relative;
+    /* Make the parent element relative so the child element can use 
+    absolute position to control */
+    perspective: 150rem;
+}
+.card-img{
+    width: 100%;
+    border-radius: 0.3rem 0.3rem 0 0;
+}
+.change .front-side{
+    opacity: 0.5;
+    z-index: 0;
+    transform: translateX(3rem) translateZ(-5rem);
+    box-shadow: 0 2rem 4rem #777;
+    
+}
+.front-side{
+    text-align: center;
+    background-color: white;
+    border-radius: 0.3rem;
+    position: relative;
+    z-index: 1;
+    opacity: 0.9;
+    transition: opacity 0.5s,transform 0.5s, box-shadow 0.5s;
+}
+.tour-name{
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    top: 30%;
+    color: white;
+    right: 1.5rem;
+    text-shadow: 0 0 1rem black;
+}
+.card-list{
+    width: 80%;
+    margin:auto;
+    padding: 2rem 0 3rem 0;
+}
+.card-list-item{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #777;
+    border-bottom: solid #2b81e4 0.1rem;
+    margin: 2rem 0;
+    padding-bottom: 1.5rem;
+}
+.change .back-side{
+    opacity: 0.9;
+    transform: translateX(0) translateZ(0);
+    box-shadow: 0 0.5rem 2rem #aaa;
+   
+}
+.back-side{
+    position: absolute;
+    top: 0;
+    background-color: #2b81e4;
+    width: 100%; /* Confuse how 100% relate to and how it cover all the frontside)*/
+    height: 100%;
+    border-radius: 0.3rem;
+    box-shadow: 0 2rem 4rem #777;
+    flex-direction: column;
+    transform: translateZ(-5rem) translateX(3rem);
+    opacity: 0.5;
+    transition: opacity 0.5s,transform 0.5s, box-shadow 0.5s;
+}
+.tour-price{
+    font-size: 5rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+    color: white;
+}
+.card-button{
+    color: #2b81e4;
+    background-color: white;
+    border: none;
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    letter-spacing: 0.2rem;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+.navigation-button{
+    position:absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(255,255,255,0.8);
+    color: #777;
+    border-radius: 0.3rem;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+}
+/* End of Popular Tours */
+
+/* Customer review */
+.stories{
+    padding: 10rem 0;
+    position: relative;
+}
+.stories-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bg-story{
+    background-color: rgba(238,238,238,0.8);
+    padding: 5rem;
+    margin: 5rem;
+    width: 70%;
+    box-shadow: 0 2rem 5rem rgba(51,51,51,0.4);
+    transform: skewX(20deg);
+}
+.story-img{
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 5rem;
+}
+.story{
+    display: flex ;
+    transform: skewX(-20deg);
+}
+.story-text{
+    letter-spacing: 0.1rem;
+    /* text-align: center; */
+
+}
+.story-heading{
+    font-size: 2.5rem;
+    color: grey;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+
+}
+.story-paragraph{
+    font-size: 1.8rem;
+    color: #777;
+}
+.story-paragraph::first-letter{
+    margin-left: 2rem;
+}
+.video-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+.bg-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* End of Customer review */
+
+/* Contact us */
+.contact{
+    padding: 15rem 0 20rem 0;
+    text-align: center;
+    background-image: url(images/contact-us-bg.png);
+    background-size: cover;
+    animation: contact-bg 30s infinite;
+}
+.contact-heading{
+    font-size: 7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: white;
+    text-shadow: 0 1rem 2rem #000;
+    margin-bottom: 8rem;
+}
+.contact-us-form{
+    width: 70rem;
+    height: 50rem;
+    background-color: rgba(255,255,255,0.95);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 3rem #000;
+    padding: 5rem;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1rem 0;
+    position: relative;
+}
+.input-groups{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.input-groups .input-group{
+    width: 48.5%;
+}
+
+.input-group input,.input-group textarea{
+    padding: 3rem 1rem 1rem 1rem;
+    color: #777;
+    /* color: #777; */
+    background-color: #eee;
+    border: 0.1rem solid #eee;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    border-radius: 0.5rem;
+    transition: border 0.3s;
+}
+.input-group input:focus,.input-group textarea:focus{
+    border: 0.1rem #ccc solid;
+}
+.input-group label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #555;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+.form-btn{
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 1rem;
+    letter-spacing: 0.1rem;
+    margin-top: 1rem;
+    background-color: #777;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    transition: background-color 0.5s;
+}
+.form-btn:hover{
+    background-color: #555;
+}
+.input-group textarea{
+    max-height: 15rem;
+    max-width: 100%;
+    min-height: 6rem;
+}
+
+@keyframes contact-bg{
+    0%{
+        background-color: #3d3d3d;
+    }
+    25%{
+        background-color: #cde8e4;
+    }
+    50%{
+        background-color: #1e81f3;
+    }
+    75%{
+        background-color: #ff7842;
+    }
+    100%{
+        background-color: #3d3d3d;
+    }
+}
+
+/* End of Contact us */
+
+/* Footer */
+.footer{
+    background-color: #555;
+    padding: 4rem 0 2rem 0;
+
+}
+.footer-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.footer-link{
+    font-size: 2rem;
+    color: white;
+    margin: 0 2rem;
+    background-color: #555;
+    padding: 0.3rem 3rem;
+    letter-spacing: 0.3rem;
+    transition: all 0.2s;
+}
+.footer-link:hover{
+    box-shadow: 0 2rem 3rem #000;
+    transform: translateY(-3px);
+    border-radius: 0.8rem;
+}
+.footer-paragraph{
+    font-size: 1.6rem;
+    color: #eee;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    margin-top: 5rem;
+}
+/* End of Footer */
+
+@media (max-width: 1200px){
+    .cards-wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        margin: 3rem 0;
+    }
+    .bg-story{
+        width: 85%;
+    }
+}
+
+@media (max-width: 1000px){
+    .nav-list {
+        flex-direction: column;
+    }
+    .nav-link{
+        flex-grow: 1;
+    }
+    .header-text{
+        position: absolute; 
+        /* The balloon image suddenly become at the center of the screen */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 10;
+    }
+    .heading{
+        font-size: 6rem;
+    }
+    .header-paragraph{
+        font-size: 2.5rem;
+    }
+    .popular-tours-heading{
+        font-size: 6rem;
+    }
+    .bg-story{
+        transform: skewX(0);
+    }
+    .story{
+        transform: skewX(0);
+        flex-direction: column;
+        align-items: center;
+    }
+    .story-img{
+         margin-bottom: 3rem;
+    }
+    .footer-link{
+        padding: 0.3rem 2rem;
+        margin: 0 1rem;
+    }
+}
+@media (max-width:800px){
+    .header-paragraph{
+        display: none;
+    }
+    .popular-tours-heading{
+        font-size: 5rem;
+    }
+    .contact-us-form{
+        width: 90%;
+    }
+    .footer-list{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-link{
+        margin: 1rem 0;
+    }
+}
+@media (max-width:650px){
+    .container{
+        margin: 0;
+    }
+    .open-navbar-icon{
+        top: 2.5rem;
+        left: 2.5rem;
+    }
+    .navbar-wrapper{
+        padding: 0;
+    }
+    .close-navbar-icon{
+        right: 4rem;
+    }
+    .header{
+        height: 100vh;
+    }
+    .contact-heading{
+        font-size: 6rem;
+    }
+    .contact-us-form{
+        padding: 2rem;
+        height: 40rem;
+    }
+}
+@media (max-width: 583px){
+    html{
+        font-size: 50%;
+    }
+}
